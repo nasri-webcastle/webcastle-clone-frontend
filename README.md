@@ -1,36 +1,153 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌐 WebCastle Clone – Fullstack CMS Website
 
-## Getting Started
+A responsive **WebCastle homepage & about page clone** built using **Next.js (App Router)** and **Strapi CMS with MySQL**. This fullstack project includes dynamic CMS-driven sections, frontend authentication with regex validation, and form handling via Strapi.
 
-First, run the development server:
+---
 
-```bash
+## 🚀 Tech Stack
+
+- **Frontend**: [Next.js 14](https://nextjs.org) with App Router
+- **Styling**: [Tailwind CSS](https://tailwindcss.com)
+- **Backend**: [Strapi v4](https://strapi.io) with MySQL
+- **Auth**: Custom frontend auth using regex, JWT in `localStorage`
+- **Forms**: Contact & other forms handled via Strapi endpoints
+
+---
+
+## ✨ Features
+
+- 🏠 Homepage and 📄 About page UI cloned from [WebCastle](https://webcastle.com)
+- 📦 Dynamic CMS integration (e.g., services, testimonials, awards)
+- 🧾 Form submission from frontend to Strapi backend
+- 🔐 Signup / Signin system:
+  - Regex-based field validation
+  - Session stored in `localStorage`
+  - Auth-based conditional UI
+- 💾 Clean, scalable folder structure
+
+---
+
+## 📁 Folder Structure
+
+webcastle-clone/
+├── frontend/ # Next.js app
+│ ├── app/ # App Router structure
+│ ├── components/ # Reusable UI components
+│ ├── utils/ # Helpers (auth, fetch, etc.)
+│ └── public/
+└── backend/ # Strapi CMS
+├── src/api/ # Collection types and controllers
+├── config/ # Database + server config
+└── public/uploads/ # Media uploads
+
+
+---
+
+## 🔧 Getting Started
+
+### 1. Clone the Project
+
+
+git clone https://github.com/nasri-webcastle/webcastle-clone.git
+cd webcastle-clone
+
+### 2. Start the Strapi Backend
+
+cd backend
+cp .env.example .env
+npm install
+npm run develop
+
+Make sure your MySQL DB is running and credentials are correct in .env.
+
+### 3. Start the Next.js Frontend
+
+cd ../frontend
+cp .env.example .env
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Now visit: http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+🌐 Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+frontend/.env
 
-## Learn More
+NEXT_PUBLIC_API_URL=http://localhost:1337/api
+NEXT_PUBLIC_STRAPI_URL=http://localhost:1337
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+DATABASE_CLIENT=mysql
+DATABASE_NAME=your_database
+DATABASE_HOST=localhost
+DATABASE_PORT=3306
+DATABASE_USERNAME=your_username
+DATABASE_PASSWORD=your_password
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+APP_KEYS=some_random_keys
+JWT_SECRET=your_jwt_secret
+API_TOKEN_SALT=random_token_salt
+ADMIN_JWT_SECRET=admin_jwt_secret
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+🔒 Auth & Validation
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Regex Validations Used:
+
+| Field        | Regex Pattern                             |
+| ------------ | ----------------------------------------- |
+| **Email**    | `/^[\\w-.]+@([\\w-]+\\.)+[\\w-]{2,4}$/`   |
+| **Username** | `/^[a-zA-Z0-9]{3,}$/`                     |
+| **Password** | `Min 8 characters, 1 number, 1 uppercase` |
+
+Auth Flow:
+Signup/Signin sends credentials to Strapi (/api/auth/local)
+
+JWT token saved in localStorage
+
+Navbar shows user state (logged in/out)
+
+Logout clears token and redirects
+
+Protected routes/components are guarded with auth checks
+
+📬 Forms
+All form submissions (like Contact Us) are:
+
+Sent to custom Strapi API endpoints
+
+Saved to Strapi collections
+
+Available in the Strapi Admin Panel
+
+📦 Deployment Notes
+You can deploy:
+
+Frontend: Vercel
+
+Backend: Render, Railway, VPS
+
+Make sure to allow CORS from your frontend domain in Strapi.
+
+📄 License
+This project is open-source and available for learning purposes only.
+It is not affiliated with the official WebCastle agency.
+
+🙏 Acknowledgements
+💻 Next.js
+
+⚙️ Strapi CMS
+
+💅 Tailwind CSS
+
+🎨 WebCastle — for the visual inspiration
+
+---
+
+Let me know if you'd like:
+
+- A `LICENSE` file (MIT or custom)
+- GitHub project badges (build passing, hosted on Vercel, etc.)
+- A deployment tutorial (`vercel.json`, `Procfile`, CI/CD)
+
+I'm ready to help with any of those too!
