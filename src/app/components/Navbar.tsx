@@ -95,32 +95,41 @@ export default function Navbar() {
 
         <div className="flex items-center space-x-4">
           {isLoggedIn && user ? (
-            <>
-              <div className="flex items-center gap-2">
+           <div className="relative group inline-block">
+              {/* Hover Target */}
+              <div className="flex items-center gap-2 cursor-pointer">
                 <div className="w-8 h-8 flex items-center justify-center bg-green-600 text-white rounded-full font-semibold">
                   {user.username.charAt(0).toUpperCase()}
                 </div>
-                <span className="text-sm font-medium text-white">
-                  {user.username}
-                </span>
+                <span className="text-sm font-medium text-white">{user.username}</span>
               </div>
-              <button
-                onClick={handleLogout}
-                className="px-4 py-2 text-sm font-semibold text-white bg-red-500 hover:bg-red-600 rounded transition duration-200"
-              >
-                Logout
-              </button>
-            </>
+
+              {/* Dropdown - fixed positioning without gap */}
+              <div className="absolute right-0 top-full w-40 bg-white shadow-md rounded-md opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity duration-200 z-50">
+                <Link
+                  href="/profile"
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                >
+                  View Profile
+                </Link>
+                <button
+                  onClick={handleLogout}
+                  className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100"
+                >
+                  Logout
+                </button>
+              </div>
+            </div>
           ) : (
-            <>
+            <>            
               <Link
-                href="/auth?tab=signup"
+                href="/?auth=signup"
                 className="px-4 py-2 text-sm font-semibold text-white bg-green-600 hover:bg-green-700 rounded transition duration-200"
               >
                 Sign Up
               </Link>
               <Link
-                href="/auth?tab=signin"
+                href="/?auth=signin"
                 className="px-4 py-2 text-sm font-semibold text-white bg-green-600 hover:bg-green-700 rounded transition duration-200"
               >
                 Sign In
@@ -130,7 +139,7 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center justify-between gap-4">
-          <span className="text-sm font-bold w-30 sm:text-base cursor-pointer px-5 py-2 rounded-md border-opacity-20 bg-green-600 text-white hover:bg-green-800 transition">
+          <span className="text-sm font-semibold w-27  cursor-pointer justify-items-center px-3 py-3 rounded-md border-opacity-20 bg-green-600 text-white hover:bg-green-800 transition">
             Let’s Talk
           </span>
           <div className="w-11 h-11 mr-7 flex flex-col items-center justify-center gap-[5px] rounded-full border border-white/20 cursor-pointer hover:bg-[#239A48] group transition">

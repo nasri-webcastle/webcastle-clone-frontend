@@ -15,6 +15,7 @@ import BlogSection from "./components/BlogSectionHome";
 import FaqSection from "./components/Faqsection"; 
 import EnquirySection from "./components/Enquiry"; 
 
+
 import { FaWhatsapp  } from 'react-icons/fa';
 import { RiMessage2Fill } from "react-icons/ri";
 

@@ -18,7 +18,7 @@ useEffect(() => {
   if (!data) return <p className="text-center py-10">Loading...</p>;
 
   return (
-    <div className="bg-[#f1f2f1] pt-20 justify-center px-10 pb-8">
+    <div className="bg-[#f1f2f1] pt-20 justify-center px-20 pb-8">
       <div className="flex items-center justify-between px-5">
         <div>
           <h1 className="text-sm font-semibold mb-4 text-green-600">

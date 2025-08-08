@@ -4,7 +4,8 @@ import "@/styles/globals.css";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import { Montserrat } from 'next/font/google';
-import CursorCircle from "@/app/components/CursorCircle"; // ✅ NEW
+import CursorCircle from "@/app/components/CursorCircle"; 
+import ModalOverlay from "@/app/components/ModalOverlay"; // ✅ client component
 
 
 const montserrat = Montserrat({
@@ -19,12 +20,15 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  
   return (
     <html lang="en">
       <body className={montserrat.variable}>
           <CursorCircle /> {/* Add Cursor Circle */}        
           <Navbar />
-          <main className="min-h-screen">{children}</main>
+          <main className="min-h-screen">{children}  
+           <ModalOverlay /> {/* ✅ conditionally renders based on URL param */}
+          </main>
           <Footer />
       </body>
     </html>
