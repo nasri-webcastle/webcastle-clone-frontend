@@ -1,5 +1,3 @@
-
-
 export interface EnquirySectionData {
   id: number;
   subtitle: string;

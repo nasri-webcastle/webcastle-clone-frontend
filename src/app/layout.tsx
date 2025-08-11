@@ -24,10 +24,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={montserrat.variable}>
-          <CursorCircle /> {/* Add Cursor Circle */}        
+          <CursorCircle />    
           <Navbar />
           <main className="min-h-screen">{children}  
-           <ModalOverlay /> {/* ✅ conditionally renders based on URL param */}
+           <ModalOverlay /> 
           </main>
           <Footer />
       </body>

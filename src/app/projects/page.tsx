@@ -1,29 +1,3 @@
-// "use client";
-
-// import Image from "next/image";
-
-// export default function AboutBanner() {
-//   return (
-//     <section className="relative w-full h-[550px] flex items-center justify-start text-left">
-//       {/* ✅ Background Image */}
-//       <Image
-//         src="/images/works banner.webp"
-//         alt="About Banner"
-//         fill
-//         className="object-cover z-0"
-//         priority
-//       />
-//       <div className="relative z-20 max-w-6xl px-6 md:px-30">
-//         <p className="text-white text-6xl font-bold">Our Works</p>
-//         <p className="text-white text-medium max-w-xl">
-//          From web design & development through to digital marketing . We’ll increase traffic by 50%, generate more leads and boost sales
-//         </p>
-//       </div>
-//     </section>
-//   );
-// }
-
-
 'use client';
 
 import Image from 'next/image';
@@ -77,7 +51,7 @@ export default function ProjectsBanner({}: Props) {
             </p>              
         </section>
         <ProjectsPage/>
-        <EnquirySection/>
+        <EnquirySection/>        
     </div>
   );
 }
